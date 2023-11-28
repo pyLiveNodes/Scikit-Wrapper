@@ -1,0 +1,22 @@
+graft docs
+graft src
+graft ci
+graft tests
+
+include .bumpversion.cfg
+include .cookiecutterrc
+include .coveragerc
+include .editorconfig
+include pytest.ini
+include tox.ini
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.md
+
+recursive-exclude src/ *.so *.dll
+recursive-include src/ Linux*/ease_tsd.so
+
+global-exclude *.py[cod] __pycache__/* *.dylib

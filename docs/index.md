@@ -1,4 +1,4 @@
-# LN EASE TSD
+# LN Scikit
 
 ```{eval-rst}
 .. toctree::

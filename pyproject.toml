@@ -1,5 +1,5 @@
 [project]
-name = "Livenodes-EASE_TSD"
+name = "LN-Scikit"
 dynamic = ['version']
 description = "LiveNodes: node based live streaming sensor/data and visualization suite."
 authors = [
@@ -10,13 +10,14 @@ authors = [
 # pip install -e . --extra-index-url https://package_puller:8qYs4hBAsmAHJ5AdS_y9@gitlab.csl.uni-bremen.de/api/v4/groups/368/-/packages/pypi/simple
 dependencies = [
     "livenodes>=0.11.0",
+    "livenodes_core_nodes>=0.9.7",
     "numpy>=1.22.1",
     "scikit-learn>=1.3.2",
 ]
 
 [project.entry-points."livenodes.nodes"]
-scikit_input = "ln_scikit.input:Scikit_input"
-scikit_output = "ln_scikit.output:Scikit_output"
+scikit_input = "ln_scikit.scikit_input:Scikit_input"
+scikit_output = "ln_scikit.scikit_output:Scikit_output"
 
 
 [project.optional-dependencies]

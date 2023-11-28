@@ -1,5 +1,3 @@
-src/nodes/biokit/*
-
 */.ipynb_checkpoints/*
 */__pycache__/*
 

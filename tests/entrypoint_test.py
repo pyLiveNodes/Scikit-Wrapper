@@ -7,8 +7,8 @@ import pytest
 
 @pytest.fixture
 def discovered_modules():
-    exclude = ['__init__']
-    modules = glob.glob(join(dirname(__file__), '../src/livenodes_ease_tsd/', "*.py"))
+    exclude = ['__init__', 'estimator']
+    modules = glob.glob(join(dirname(__file__), '../src/ln_scikit/', "*.py"))
     names = [basename(f)[:-3] for f in modules if isfile(f)]
     return [f for f in names if not f in exclude]
 
@@ -23,9 +23,9 @@ class TestProcessing():
         assert set(discovered_modules) <= set(livnodes_entrypoints)
 
     def test_loads_class(self):
-        ease_read_plux = [x.load() for x in entry_points()['livenodes.nodes'] if x.name == 'ease_read_plux'][0]
-        from livenodes_ease_tsd.ease_read_plux import EASE_read_plux
-        assert EASE_read_plux == ease_read_plux
+        scikit_input = [x.load() for x in entry_points()['livenodes.nodes'] if x.name == 'scikit_input'][0]
+        from ln_scikit.scikit_input import Scikit_input
+        assert Scikit_input == scikit_input
 
     def test_all_loadable(self):
         for x in entry_points()['livenodes.nodes']:

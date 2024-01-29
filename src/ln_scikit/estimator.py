@@ -5,6 +5,19 @@ from livenodes import Node, Graph
 def flatten_reduce_lambda(matrix):
     return list(reduce(lambda x, y: x + list(y), matrix, []))
 
+def merge_dicts_deep(*dicts):
+    """
+    Merge multiple dicts into one dict
+    """
+    res = {}
+    for dct in dicts:
+        for k, v in dct.items():
+            if k in res and isinstance(res[k], dict) and isinstance(v, dict):
+                res[k] = merge_dicts_deep(res[k], v)
+            else:
+                res[k] = v
+    return res
+
 class LN_Estimator (BaseEstimator, ClassifierMixin):
     def __init__(self, fit_graph_dct, prd_graph_dct, fit_x_channel, fit_y_channel, fit_model_channel, prd_x_channel, prd_y_channel, prd_model_channel, fit_params={}, prd_params={}):
         # Store pipelines, these should be dicts
@@ -31,7 +44,7 @@ class LN_Estimator (BaseEstimator, ClassifierMixin):
         }
 
         # Apply params and add I/O Nodes
-        nodes = {**fit_graph_dct['Nodes'], **fit_params, **fit_io}
+        nodes = merge_dicts_deep(fit_graph_dct['Nodes'], fit_params, fit_io)
         
         # Add I/O Connections
         inputs = fit_graph_dct['Inputs'] + [
@@ -57,7 +70,7 @@ class LN_Estimator (BaseEstimator, ClassifierMixin):
         }
 
         # Apply params and add I/O Nodes
-        nodes = {**prd_graph_dct['Nodes'], **prd_params, **prd_io}
+        nodes = merge_dicts_deep(prd_graph_dct['Nodes'], prd_params, prd_io)
         
         # Add I/O Connections
         inputs = prd_graph_dct['Inputs'] + [

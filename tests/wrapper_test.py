@@ -25,6 +25,9 @@ class KNN_fit(Node):
         self.x = []
         self.y = []
 
+    def _settings(self):
+        return {"n": self.n}
+
     def process(self, x, y, **kwargs):
         self.x.append(x)
         self.y.append(y)
@@ -110,7 +113,7 @@ if __name__ == "__main__":
     assert dct['Nodes']['KNN [KNN_fit]']['n'] == 1
     assert dct['Nodes']['KNN [KNN_fit]']['name'] == "KNN"
 
-    # estimator.fit(X, y)
-    # assert y == list(estimator.predict(X))
+    estimator.fit(X, y)
+    assert y == list(estimator.predict(X))
 
-    # print(cross_val_predict(estimator, X, y, cv=2))
+    print(cross_val_predict(estimator, X, y, cv=2))

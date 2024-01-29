@@ -10,7 +10,7 @@ authors = [
 # pip install -e . --extra-index-url https://package_puller:8qYs4hBAsmAHJ5AdS_y9@gitlab.csl.uni-bremen.de/api/v4/groups/368/-/packages/pypi/simple
 dependencies = [
     "livenodes>=0.11.0",
-    "livenodes_core_nodes>=0.9.7",
+    "livenodes_core_nodes>=0.9.8",
     "scikit-learn>=1.3.2",
 ]
 

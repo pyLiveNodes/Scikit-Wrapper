@@ -1,7 +1,7 @@
-livenodes_ease_tsd
-==============
+ln_scikit
+=========
 
 .. toctree::
    :maxdepth: 4
 
-   livenodes_ease_tsd
+   ln_scikit

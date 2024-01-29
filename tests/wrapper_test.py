@@ -39,7 +39,7 @@ class KNN_fit(Node):
     
 @registry.nodes.decorator
 class KNN_prd(Node):
-    ports_in = Ports_dual()
+    ports_in = Ports_dual() # this obviously should be (x, model) not (x, y)... but this is just a test
     ports_out = Ports_any()
 
     def process(self, x, y=None, **kwargs):

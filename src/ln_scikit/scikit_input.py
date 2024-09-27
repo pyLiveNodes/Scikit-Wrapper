@@ -1,5 +1,5 @@
 from livenodes import Producer
-from livenodes_core_nodes.ports import Ports_empty, Ports_any
+from ln_ports import Ports_empty, Ports_any
 
 class Scikit_input(Producer):
     """Feeds all initially set data one by one into the pipeline.

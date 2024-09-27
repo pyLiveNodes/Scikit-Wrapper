@@ -3,7 +3,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_predict
 
 from livenodes import Node
-from livenodes_core_nodes.ports import Ports_any, Port_Any
+from ln_ports import Ports_any, Port_Any
 from typing import NamedTuple
 from ln_scikit import LN_Estimator
 

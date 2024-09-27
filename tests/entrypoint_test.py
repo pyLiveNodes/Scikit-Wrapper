@@ -17,16 +17,16 @@ class TestProcessing():
         assert len(discovered_modules) > 0
 
     def test_all_declared(self, discovered_modules):
-        livnodes_entrypoints = [x.name for x in entry_points()['livenodes.nodes']]
+        livnodes_entrypoints = [x.name for x in entry_points(group='livenodes.nodes')]
 
         print(set(discovered_modules).difference(set(livnodes_entrypoints)))
         assert set(discovered_modules) <= set(livnodes_entrypoints)
 
     def test_loads_class(self):
-        scikit_input = [x.load() for x in entry_points()['livenodes.nodes'] if x.name == 'scikit_input'][0]
+        scikit_input = [x.load() for x in entry_points(group='livenodes.nodes') if x.name == 'scikit_input'][0]
         from ln_scikit.scikit_input import Scikit_input
         assert Scikit_input == scikit_input
 
     def test_all_loadable(self):
-        for x in entry_points()['livenodes.nodes']:
+        for x in entry_points(group='livenodes.nodes'):
             x.load()

@@ -2,15 +2,14 @@ import pytest
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_predict
 
-from livenodes import Node
-from livenodes_core_nodes.ports import Ports_any, Port_Any
-from typing import NamedTuple
+from livenodes import Node, Ports_collection
+from ln_ports import Ports_any, Port_Any
 from ln_scikit import LN_Estimator
 
 from livenodes import get_registry
 registry = get_registry()
 
-class Ports_dual(NamedTuple):
+class Ports_dual(Ports_collection):
     x: Port_Any = Port_Any("X")
     y: Port_Any = Port_Any("y")
 

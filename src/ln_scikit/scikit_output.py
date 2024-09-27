@@ -1,5 +1,5 @@
 from livenodes import Node
-from livenodes_core_nodes.ports import Ports_empty, Ports_any
+from ln_ports import Ports_empty, Ports_any
 import multiprocessing as mp
 
 class Scikit_output(Node):

@@ -69,7 +69,16 @@ class TestWrapper():
         X = [[0, 1], [1, 2], [3, 4], [4, 5]]
         y = [0, 0, 1, 1]
 
-        initial_node, model_node = est.construct_fit_graph(est.fit_graph_dct, est.fit_x_channel, est.fit_y_channel, est.fit_model_channel, est.fit_params, [X], [y])
+        initial_node, model_node = est.construct_fit_graph(
+            fit_graph_dct=est.fit_graph_dct,
+            fit_x_channel=est.fit_x_channel,
+            fit_y_channel=est.fit_y_channel,
+            fit_model_channel=est.fit_model_channel,
+            fit_model_trigger=None,
+            fit_params=est.fit_params,
+            X=[X],
+            y=[y]
+        )
         dct = initial_node.to_compact_dict(graph=True)
 
         assert dct['Nodes']['KNN [KNN_fit]']['n'] == 1
@@ -106,7 +115,16 @@ if __name__ == "__main__":
                         prd_x_channel="KNN [KNN_prd].x", prd_y_channel="KNN [KNN_prd].any", prd_model_channel="KNN [KNN_prd].y", 
                         fit_params={"KNN [KNN_fit]": dict(n=1)}, prd_params=dict())
 
-    initial_node, model_node = estimator.construct_fit_graph(estimator.fit_graph_dct, estimator.fit_x_channel, estimator.fit_y_channel, estimator.fit_model_channel, estimator.fit_params, [X], [y])
+    initial_node, model_node = estimator.construct_fit_graph(
+        fit_graph_dct=estimator.fit_graph_dct,
+        fit_x_channel=estimator.fit_x_channel,
+        fit_y_channel=estimator.fit_y_channel,
+        fit_model_channel=estimator.fit_model_channel,
+        fit_model_trigger=None,
+        fit_params=estimator.fit_params,
+        X=[X],
+        y=[y]
+    )
     dct = initial_node.to_compact_dict(graph=True)
 
     assert dct['Nodes']['KNN [KNN_fit]']['n'] == 1

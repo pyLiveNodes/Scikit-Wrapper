@@ -1,3 +1,6 @@
+[![Format and Test](https://github.com/pyLiveNodes/Scikit-Wrapper/actions/workflows/format_test.yml/badge.svg)](https://github.com/pyLiveNodes/Scikit-Wrapper/actions/workflows/format_test.yml)
+[![Publish](https://github.com/pyLiveNodes/Scikit-Wrapper/actions/workflows/publish.yml/badge.svg)](https://github.com/pyLiveNodes/Scikit-Wrapper/actions/workflows/publish.yml)
+
 # Livenodes Scikit Wrapper
 
 The wrapper provides a simple interface to create and run Livenodes graphs as a Scikit-Learn Estimator. This allows the use of LN graphs in all Standard Scikit-learn workflows, starting with cross-validations, grid search or even pipelines.

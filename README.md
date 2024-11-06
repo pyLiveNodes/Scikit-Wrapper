@@ -5,7 +5,7 @@ The wrapper provides a simple interface to create and run Livenodes graphs as a 
 ## Installation:
 
 ```bash
-pip install ln_scikit --extra-index-url https://package_puller:8qYs4hBAsmAHJ5AdS_y9@gitlab.csl.uni-bremen.de/api/v4/groups/368/-/packages/pypi/simple
+pip install ln_scikit 
 ```
 
 ## Livenodes & LN-Studio
